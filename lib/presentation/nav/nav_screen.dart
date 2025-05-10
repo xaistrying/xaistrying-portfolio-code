@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:xaistrying_portfolio/app/bloc/app_config/app_config_cubit.dart';
+import 'package:xaistrying_portfolio/app/constant/image_constant.dart';
 import 'package:xaistrying_portfolio/app/constant/language_constant.dart';
 import 'package:xaistrying_portfolio/app/extension/context_extension.dart';
 import 'package:xaistrying_portfolio/app/theme/app_color.dart';
@@ -128,14 +129,14 @@ class NavScreen extends StatelessWidget {
                 icon:
                     context.isDarkMode
                         ? SvgPicture.asset(
-                          'asset/icon/moon_line.svg',
+                          ImageConstant.moon,
                           colorFilter: const ColorFilter.mode(
                             AppColor.white,
                             BlendMode.srcIn,
                           ),
                         )
                         : SvgPicture.asset(
-                          'asset/icon/sun_line.svg',
+                          ImageConstant.sun,
                           colorFilter: const ColorFilter.mode(
                             AppColor.black,
                             BlendMode.srcIn,

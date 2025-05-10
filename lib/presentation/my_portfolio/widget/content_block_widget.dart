@@ -16,23 +16,14 @@ class ContentBlockWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          width: double.infinity,
-          padding: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: AppColor.getWhiteBlack(context),
-              width: 2,
-            ),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: child,
-        ),
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColor.getWhiteBlack(context), width: 2),
+        borderRadius: BorderRadius.circular(16),
       ),
+      child: child,
     );
   }
 }

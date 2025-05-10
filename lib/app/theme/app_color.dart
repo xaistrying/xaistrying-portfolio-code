@@ -21,4 +21,6 @@ class AppColor {
         ? AppColor.white
         : AppColor.black;
   }
+
+  static Color lightGrey = Colors.grey.withValues(alpha: 220);
 }
