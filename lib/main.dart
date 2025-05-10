@@ -1,6 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// Project imports:
 import 'app/bloc/app_config/app_config_cubit.dart';
 import 'app/l10n/generated/app_localizations.dart';
 import 'app/router/app_router.dart';

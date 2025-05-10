@@ -1,7 +1,11 @@
-import 'package:bloc/bloc.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
 import '../../l10n/generated/app_localizations.dart';
 
 part 'app_config_state.dart';

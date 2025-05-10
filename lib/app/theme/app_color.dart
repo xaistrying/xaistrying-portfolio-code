@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:xaistrying_portfolio/app/extension/context_extension.dart';
 
 class AppColor {
