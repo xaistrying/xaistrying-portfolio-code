@@ -85,6 +85,11 @@ class NavScreen extends StatelessWidget {
                       ),
                     );
                   },
+                  style: MenuStyle(
+                    elevation: WidgetStatePropertyAll(
+                      context.isDarkMode ? 0 : 4,
+                    ),
+                  ),
                   menuChildren:
                       AppLocalizations.supportedLocales
                           .map(
@@ -98,7 +103,7 @@ class NavScreen extends StatelessWidget {
                                   horizontal: 24,
                                   vertical: 20,
                                 ),
-                                backgroundColor: AppColor.getWhiteBlack(
+                                backgroundColor: AppColor.getWhiteLightBlack(
                                   context,
                                   reverse: true,
                                 ),

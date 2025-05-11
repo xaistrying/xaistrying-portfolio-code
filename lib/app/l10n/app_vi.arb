@@ -2,5 +2,9 @@
     "@@locale": "vi",
     "myPortfolio": "Hồ sơ của tôi",
     "blog": "Bài viết",
-    "contact": "Liên hệ"
+    "contact": "Liên hệ",
+    "experiences": "Kinh nghiệm",
+    "projects": "Dự án",
+    "certificates": "Chứng chỉ",
+    "skills": "Kỹ năng"
 }

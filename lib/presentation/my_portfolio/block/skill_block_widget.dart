@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:xaistrying_portfolio/app/extension/context_extension.dart';
 import '../widget/content_block_widget.dart';
 
-class ProjectBlockWidget extends StatelessWidget {
-  const ProjectBlockWidget({super.key});
+class SkillBlockWidget extends StatelessWidget {
+  const SkillBlockWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ProjectBlockWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            context.loc.projects,
+            context.loc.skills,
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
         ],

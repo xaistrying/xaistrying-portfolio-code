@@ -2,5 +2,9 @@
     "@@locale": "en",
     "myPortfolio": "My portfolio",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "experiences": "Experiences",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "skills": "Skills"
 }

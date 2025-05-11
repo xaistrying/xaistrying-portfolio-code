@@ -10,7 +10,6 @@ import '../../../../app/theme/app_color.dart';
 
 // Project imports:
 
-
 class TimelineTile extends StatelessWidget {
   const TimelineTile({
     super.key,
@@ -65,13 +64,13 @@ class TimelineTile extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  margin: const EdgeInsets.only(top: 8, bottom: 16),
                   padding: const EdgeInsets.symmetric(
                     vertical: 20,
                     horizontal: 16,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColor.lightGrey,
+                    color: AppColor.transGrey,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Column(
@@ -102,7 +101,9 @@ class TimelineTile extends StatelessWidget {
                               )
                           else
                             const SizedBox.shrink(),
-                          Text(title, style: TextStyle(fontSize: 20)),
+                          Flexible(
+                            child: Text(title, style: TextStyle(fontSize: 20)),
+                          ),
                         ],
                       ),
                       Text(subtitile, style: TextStyle(fontSize: 18)),

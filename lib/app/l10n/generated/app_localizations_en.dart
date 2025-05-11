@@ -16,4 +16,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get contact => 'Contact';
+
+  @override
+  String get experiences => 'Experiences';
+
+  @override
+  String get projects => 'Projects';
+
+  @override
+  String get certificates => 'Certificates';
+
+  @override
+  String get skills => 'Skills';
 }

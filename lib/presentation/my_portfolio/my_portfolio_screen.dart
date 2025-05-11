@@ -6,6 +6,7 @@ import 'block/certificate_block_widget.dart';
 import 'block/experience_block_widget.dart';
 import 'block/info_block_widget.dart';
 import 'block/project_block_widget.dart';
+import 'block/skill_block_widget.dart';
 
 class MyPortfolioScreen extends StatelessWidget {
   const MyPortfolioScreen({super.key});
@@ -29,14 +30,24 @@ class MyPortfolioScreen extends StatelessWidget {
                 ],
               ),
             ),
+
             Expanded(
               flex: 2,
               child: Column(
                 spacing: 20,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(child: ProjectBlockWidget()),
-                  Expanded(child: CertificateBlockWidget()),
+                  Expanded(
+                    flex: 5,
+                    child: Row(
+                      spacing: 20,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(child: ProjectBlockWidget()),
+                        Expanded(child: CertificateBlockWidget()),
+                      ],
+                    ),
+                  ),
+                  Expanded(flex: 4, child: SkillBlockWidget()),
                 ],
               ),
             ),

@@ -16,4 +16,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get contact => 'Liên hệ';
+
+  @override
+  String get experiences => 'Kinh nghiệm';
+
+  @override
+  String get projects => 'Dự án';
+
+  @override
+  String get certificates => 'Chứng chỉ';
+
+  @override
+  String get skills => 'Kỹ năng';
 }

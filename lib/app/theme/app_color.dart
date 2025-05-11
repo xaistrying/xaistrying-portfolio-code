@@ -11,6 +11,7 @@ class AppColor {
   static const darkScaffold = Color.fromARGB(255, 37, 37, 37);
   static const white = Color.fromARGB(255, 250, 250, 250);
   static const black = Color.fromARGB(255, 10, 10, 10);
+  static const lightDark = Color.fromARGB(255, 60, 60, 60);
 
   static Color getWhiteBlack(BuildContext context, {bool? reverse}) {
     return reverse == true
@@ -22,5 +23,16 @@ class AppColor {
         : AppColor.black;
   }
 
-  static Color lightGrey = Colors.grey.withValues(alpha: 220);
+  static Color getWhiteLightBlack(BuildContext context, {bool? reverse}) {
+    return reverse == true
+        ? context.isDarkMode
+            ? AppColor.lightDark
+            : AppColor.white
+        : context.isDarkMode
+        ? AppColor.white
+        : AppColor.lightDark;
+  }
+
+  static Color transGrey = Colors.grey.withValues(alpha: 220);
+  static Color lightGrey = Color.fromARGB(255, 233, 233, 233);
 }

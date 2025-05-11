@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 // Project imports:
+import 'package:xaistrying_portfolio/app/extension/context_extension.dart';
+import 'package:xaistrying_portfolio/app/extension/string_extension.dart';
 import 'package:xaistrying_portfolio/presentation/my_portfolio/widget/custom_timeline/timeline_widget.dart';
 import '../widget/content_block_widget.dart';
 
@@ -16,28 +18,40 @@ class ExperienceBlockWidget extends StatelessWidget {
     return ContentBlockWidget(
       onTap: () {},
       child: Column(
+        spacing: 20,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Experiences',
+            context.loc.experiences,
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           Expanded(
             child: ListView(
               children: [
-                const SizedBox(height: 20),
                 TimelineTree(
                   tiles: [
                     TimelineTile(
-                      startTime: DateFormat.yMMM().format(DateTime(2024, 7)),
-                      endTime: DateFormat.yMMM().format(DateTime(2025, 4)),
+                      startTime:
+                          DateFormat.yMMMM()
+                              .format(DateTime(2024, 7))
+                              .toCapitalized,
+                      endTime:
+                          DateFormat.yMMMM()
+                              .format(DateTime(2025, 4))
+                              .toCapitalized,
                       title: 'SmartVietnam',
                       subtitile: 'Mobile Developer',
                       iconType: BuildingIconType.company,
                     ),
                     TimelineTile(
-                      startTime: DateFormat.yMMM().format(DateTime(2021, 8)),
-                      endTime: DateFormat.yMMM().format(DateTime(2025, 8)),
+                      startTime:
+                          DateFormat.yMMMM()
+                              .format(DateTime(2021, 8))
+                              .toCapitalized,
+                      endTime:
+                          DateFormat.yMMMM()
+                              .format(DateTime(2025, 8))
+                              .toCapitalized,
                       title: 'University of Science, VNUHCM',
                       subtitile: 'Bachelor in Mathematics and Computer Science',
                       isTheLastOne: true,

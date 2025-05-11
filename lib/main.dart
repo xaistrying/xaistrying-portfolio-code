@@ -1,8 +1,11 @@
 // Flutter imports:
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/date_symbol_data_file.dart';
+import 'package:intl/intl.dart';
 
 // Project imports:
 import 'app/bloc/app_config/app_config_cubit.dart';
@@ -25,7 +28,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppConfigCubit, AppConfigState>(
+    return BlocConsumer<AppConfigCubit, AppConfigState>(
+      listener: (context, state) {
+        if (state is UpdateLocaleState) {
+          Intl.defaultLocale = state.data.locale?.languageCode;
+        }
+      },
       builder: (context, state) {
         return MaterialApp.router(
           routerConfig: AppRouter.router,
@@ -35,6 +43,15 @@ class MainApp extends StatelessWidget {
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           locale: state.data.locale,
+
+          scrollBehavior: MaterialScrollBehavior().copyWith(
+            dragDevices: {
+              PointerDeviceKind.mouse,
+              PointerDeviceKind.touch,
+              PointerDeviceKind.stylus,
+              PointerDeviceKind.unknown,
+            },
+          ),
         );
       },
     );
