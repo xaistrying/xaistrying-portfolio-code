@@ -1,12 +1,11 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:xaistrying_portfolio/presentation/my_portfolio/responsive/mobile_screen.dart';
 
 // Project imports:
-import 'block/certificate_block_widget.dart';
-import 'block/experience_block_widget.dart';
-import 'block/info_block_widget.dart';
-import 'block/project_block_widget.dart';
-import 'block/skill_block_widget.dart';
+import 'package:xaistrying_portfolio/presentation/responsive/responsive_layout.dart';
+import 'package:xaistrying_portfolio/presentation/my_portfolio/responsive/tablet_screen.dart';
+import 'responsive/desktop_screen.dart';
 
 class MyPortfolioScreen extends StatelessWidget {
   const MyPortfolioScreen({super.key});
@@ -14,45 +13,10 @@ class MyPortfolioScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
-        child: Row(
-          spacing: 20,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Column(
-                spacing: 20,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  InfoBlockWidget(),
-                  Expanded(child: ExperienceBlockWidget()),
-                ],
-              ),
-            ),
-
-            Expanded(
-              flex: 2,
-              child: Column(
-                spacing: 20,
-                children: [
-                  Expanded(
-                    flex: 5,
-                    child: Row(
-                      spacing: 20,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(child: ProjectBlockWidget()),
-                        Expanded(child: CertificateBlockWidget()),
-                      ],
-                    ),
-                  ),
-                  Expanded(flex: 4, child: SkillBlockWidget()),
-                ],
-              ),
-            ),
-          ],
-        ),
+      body: ResponsiveLayout(
+        desktopBody: DesktopScreen(),
+        tabletBody: TabletScreen(),
+        mobileBody: MobileScreen(),
       ),
     );
   }

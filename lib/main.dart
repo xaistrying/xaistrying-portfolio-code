@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/date_symbol_data_file.dart';
 import 'package:intl/intl.dart';
 
 // Project imports:

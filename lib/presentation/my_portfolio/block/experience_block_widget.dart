@@ -26,40 +26,46 @@ class ExperienceBlockWidget extends StatelessWidget {
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           Expanded(
-            child: ListView(
-              children: [
-                TimelineTree(
-                  tiles: [
-                    TimelineTile(
-                      startTime:
-                          DateFormat.yMMMM()
-                              .format(DateTime(2024, 7))
-                              .toCapitalized,
-                      endTime:
-                          DateFormat.yMMMM()
-                              .format(DateTime(2025, 4))
-                              .toCapitalized,
-                      title: 'SmartVietnam',
-                      subtitile: 'Mobile Developer',
-                      iconType: BuildingIconType.company,
-                    ),
-                    TimelineTile(
-                      startTime:
-                          DateFormat.yMMMM()
-                              .format(DateTime(2021, 8))
-                              .toCapitalized,
-                      endTime:
-                          DateFormat.yMMMM()
-                              .format(DateTime(2025, 8))
-                              .toCapitalized,
-                      title: 'University of Science, VNUHCM',
-                      subtitile: 'Bachelor in Mathematics and Computer Science',
-                      isTheLastOne: true,
-                      iconType: BuildingIconType.school,
-                    ),
-                  ],
-                ),
-              ],
+            child: ScrollConfiguration(
+              behavior: ScrollConfiguration.of(
+                context,
+              ).copyWith(scrollbars: false),
+              child: ListView(
+                children: [
+                  TimelineTree(
+                    tiles: [
+                      TimelineTile(
+                        startTime:
+                            DateFormat.yMMM()
+                                .format(DateTime(2024, 7))
+                                .toCapitalized,
+                        endTime:
+                            DateFormat.yMMM()
+                                .format(DateTime(2025, 4))
+                                .toCapitalized,
+                        title: 'SmartVietnam',
+                        subtitile: 'Mobile Developer',
+                        iconType: BuildingIconType.company,
+                      ),
+                      TimelineTile(
+                        startTime:
+                            DateFormat.yMMM()
+                                .format(DateTime(2021, 8))
+                                .toCapitalized,
+                        endTime:
+                            DateFormat.yMMM()
+                                .format(DateTime(2025, 8))
+                                .toCapitalized,
+                        title: 'University of Science, VNUHCM',
+                        subtitile:
+                            'Bachelor in Mathematics and Computer Science',
+                        isTheLastOne: true,
+                        iconType: BuildingIconType.school,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],
