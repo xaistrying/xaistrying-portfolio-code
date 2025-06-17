@@ -1,11 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:flutter_svg/svg.dart';
-
 // Project imports:
-import '../../../../app/constant/image_constant.dart';
 import '../../../../app/theme/app_color.dart';
 
 // Project imports:
@@ -82,25 +78,9 @@ class TimelineTile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          if (iconType != null)
-                            if (iconType == BuildingIconType.school)
-                              SvgPicture.asset(
-                                ImageConstant.school,
-                                colorFilter: ColorFilter.mode(
-                                  AppColor.getWhiteBlack(context),
-                                  BlendMode.srcIn,
-                                ),
-                              )
-                            else
-                              SvgPicture.asset(
-                                ImageConstant.company,
-                                colorFilter: ColorFilter.mode(
-                                  AppColor.getWhiteBlack(context),
-                                  BlendMode.srcIn,
-                                ),
-                              )
-                          else
-                            const SizedBox.shrink(),
+                          // Icon
+
+                          // Text
                           Flexible(
                             child: Text(title, style: TextStyle(fontSize: 20)),
                           ),

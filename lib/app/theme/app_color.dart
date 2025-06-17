@@ -34,5 +34,4 @@ class AppColor {
   }
 
   static Color transGrey = Colors.grey.withValues(alpha: 220);
-  static Color lightGrey = Color.fromARGB(255, 233, 233, 233);
 }
