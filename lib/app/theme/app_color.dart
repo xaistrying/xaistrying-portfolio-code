@@ -33,5 +33,15 @@ class AppColor {
         : AppColor.lightDark;
   }
 
+  static Color getLightDark(BuildContext context, {bool? reverse}) {
+    return reverse == true
+        ? context.isDarkMode
+            ? AppColor.darkScaffold
+            : AppColor.ligthScaffold
+        : context.isDarkMode
+        ? AppColor.ligthScaffold
+        : AppColor.darkScaffold;
+  }
+
   static Color transGrey = Colors.grey.withValues(alpha: 220);
 }
