@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:xaistrying_portfolio/app/theme/app_color.dart';
 import 'package:xaistrying_portfolio/app/util/screen_helper.dart';
 
@@ -21,6 +24,7 @@ class HeaderComponent extends StatelessWidget {
       height:
           MediaQuery.of(context).size.height *
           (ScreenHelper.isMobile(context) ? .7 : .85),
+      padding: EdgeInsets.symmetric(vertical: 80),
       decoration: _headerContainerDecoration(context),
       child: Row(
         spacing: 80 * (MediaQuery.of(context).size.width / 1200),
@@ -36,6 +40,7 @@ class HeaderComponent extends StatelessWidget {
       height:
           MediaQuery.of(context).size.height *
           (ScreenHelper.isMobile(context) ? .7 : .85),
+      padding: EdgeInsets.symmetric(vertical: 40),
       decoration: _headerContainerDecoration(context),
       child: Row(
         spacing: 40 * (MediaQuery.of(context).size.width / 800),
@@ -51,6 +56,7 @@ class HeaderComponent extends StatelessWidget {
       decoration: _headerContainerDecoration(context),
       child: ListView(
         shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
         children: [
           FlutterLogo(size: 400),
           SizedBox(height: 40),

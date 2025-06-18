@@ -22,6 +22,7 @@ class NavScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        scrolledUnderElevation: 0,
         shape: Border(
           bottom: BorderSide(color: AppColor.getWhiteBlack(context), width: 2),
         ),

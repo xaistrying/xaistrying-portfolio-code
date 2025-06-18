@@ -26,13 +26,14 @@ class AppBarFunctionMobileLayout extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        spacing: 8,
+        spacing: 4,
         children: [
           IconButton(
             onPressed: () => Scaffold.of(context).openDrawer(),
             constraints: BoxConstraints(),
             style: IconButton.styleFrom(
               splashFactory: NoSplash.splashFactory,
+              alignment: Alignment.centerLeft,
               overlayColor: Colors.transparent,
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
@@ -130,9 +131,10 @@ class AppBarFunctionMobileLayout extends StatelessWidget {
             onPressed:
                 () => context.read<AppConfigCubit>().updateThemeMode(context),
             style: IconButton.styleFrom(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               splashFactory: NoSplash.splashFactory,
               overlayColor: Colors.transparent,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
             icon:
                 context.isDarkMode
