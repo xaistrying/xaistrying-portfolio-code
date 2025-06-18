@@ -39,25 +39,33 @@ class TechComponent extends StatelessWidget {
           SizedBox(
             width: wrapConstraintHeight,
             child: Wrap(
-              spacing: 20,
+              spacing: 40,
               runSpacing: 40,
               alignment: WrapAlignment.center,
               children: List.generate(
-                16,
+                8,
                 (index) => HoverScaleAnimationWidget(
-                  child: Container(
-                    padding: EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: AppColor.transGrey,
-                      border: Border.all(
-                        width: 2,
-                        color: AppColor.getLightDark(context),
+                  child: Column(
+                    spacing: 16,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: AppColor.transGrey,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: FlutterLogo(
+                          size: ScreenHelper.isMobile(context) ? 60 : 80,
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: FlutterLogo(
-                      size: ScreenHelper.isMobile(context) ? 60 : 80,
-                    ),
+                      Text(
+                        'Flutter',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: AppColor.getLightDark(context),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
