@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:xaistrying_portfolio/app/theme/app_color.dart';
 import 'package:xaistrying_portfolio/presentation/nav/layout/app_bar_function_tablet_layout.dart';
 import 'package:xaistrying_portfolio/presentation/nav/layout/app_bar_functions_desktop_layout.dart';
-import 'package:xaistrying_portfolio/presentation/responsive/responsive_layout.dart';
+import '../../app/util/screen_helper.dart';
 import 'layout/app_bar_function_mobile_layout.dart';
 import 'widget/drawer_widget.dart';
 
@@ -25,7 +25,7 @@ class NavScreen extends StatelessWidget {
         shape: Border(
           bottom: BorderSide(color: AppColor.getWhiteBlack(context), width: 2),
         ),
-        title: ResponsiveLayout(
+        title: ScreenHelper(
           desktopBody: AppBarFunctionsDesktopLayout(
             navigationShell: navigationShell,
           ),
@@ -37,7 +37,7 @@ class NavScreen extends StatelessWidget {
           ),
         ),
       ),
-      drawer: ResponsiveLayout(
+      drawer: ScreenHelper(
         tabletBody: DrawerWidget(navigationShell: navigationShell),
         mobileBody: DrawerWidget(navigationShell: navigationShell),
       ),

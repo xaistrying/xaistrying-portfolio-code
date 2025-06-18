@@ -17,6 +17,9 @@ class DrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: AppColor.getLightDark(context, reverse: true),
+      shape: BeveledRectangleBorder(
+        borderRadius: BorderRadius.only(bottomRight: Radius.circular(20)),
+      ),
       child: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         children: [
