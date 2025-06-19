@@ -104,9 +104,11 @@ class ExpComponent extends StatelessWidget {
           SizedBox(height: 20),
           _defaultHorizontalPadding(
             child: Row(
-              spacing: 16,
               children: [
-                Icon(Icons.circle_rounded, size: 8),
+                Padding(
+                  padding: const EdgeInsets.only(left: 2.0, right: 16.0),
+                  child: Icon(Icons.circle_rounded, size: 8),
+                ),
                 Flexible(
                   child: Text(
                     'Lorem Ipsum ',

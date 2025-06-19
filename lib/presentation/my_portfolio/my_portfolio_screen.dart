@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:xaistrying_portfolio/presentation/my_portfolio/components/exp_component.dart';
 import 'package:xaistrying_portfolio/presentation/my_portfolio/components/header_component.dart';
 import 'package:xaistrying_portfolio/presentation/my_portfolio/components/tech_component.dart';
+import '../nav/widget/sliver_app_bar_widget.dart';
 
 class MyPortfolioScreen extends StatelessWidget {
   const MyPortfolioScreen({super.key});
@@ -12,8 +13,17 @@ class MyPortfolioScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [HeaderComponent(), TechComponent(), ExpComponent()],
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBarWidget(),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              HeaderComponent(),
+              TechComponent(),
+              ExpComponent(),
+            ]),
+          ),
+        ],
       ),
     );
   }

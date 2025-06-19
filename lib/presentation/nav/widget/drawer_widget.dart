@@ -21,6 +21,7 @@ class DrawerWidget extends StatelessWidget {
         borderRadius: BorderRadius.only(bottomRight: Radius.circular(20)),
       ),
       child: ListView(
+        cacheExtent: 10000,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         children: [
           Align(

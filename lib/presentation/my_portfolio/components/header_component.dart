@@ -56,6 +56,7 @@ class HeaderComponent extends StatelessWidget {
       decoration: _headerContainerDecoration(context),
       child: ListView(
         shrinkWrap: true,
+        cacheExtent: 10000,
         physics: NeverScrollableScrollPhysics(),
         children: [
           FlutterLogo(size: 400),
@@ -109,7 +110,7 @@ class HeaderComponent extends StatelessWidget {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: AppColor.getLightDark(context),
+              color: AppColor.getLightDark(context, reverse: true),
             ),
           ),
         ),

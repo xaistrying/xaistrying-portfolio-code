@@ -1,3 +1,6 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:go_router/go_router.dart';
 
@@ -6,6 +9,9 @@ import 'package:xaistrying_portfolio/presentation/blog/blog_screen.dart';
 import 'package:xaistrying_portfolio/presentation/contact/contact_screen.dart';
 import 'package:xaistrying_portfolio/presentation/my_portfolio/my_portfolio_screen.dart';
 import 'package:xaistrying_portfolio/presentation/nav/nav_screen.dart';
+import '../../presentation/nav/nav_shell_provider.dart';
+
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
 class AppRouter {
   AppRouter._();
@@ -19,8 +25,10 @@ class AppRouter {
     routes: [
       StatefulShellRoute.indexedStack(
         builder:
-            (context, state, navigationShell) =>
-                NavScreen(navigationShell: navigationShell),
+            (context, state, navigationShell) => NavigationShellProvider(
+              navigationShell: navigationShell,
+              child: NavScreen(navigationShell: navigationShell),
+            ),
         branches: [
           StatefulShellBranch(
             routes: [

@@ -13,6 +13,7 @@ import 'package:xaistrying_portfolio/app/extension/string_extension.dart';
 import '../../../app/bloc/app_config/app_config_cubit.dart';
 import '../../../app/constant/language_constant.dart';
 import '../../../app/l10n/generated/app_localizations.dart';
+import '../../../app/router/app_router.dart';
 import '../../../app/theme/app_color.dart';
 
 class AppBarFunctionMobileLayout extends StatelessWidget {
@@ -29,7 +30,7 @@ class AppBarFunctionMobileLayout extends StatelessWidget {
         spacing: 4,
         children: [
           IconButton(
-            onPressed: () => Scaffold.of(context).openDrawer(),
+            onPressed: () => scaffoldKey.currentState!.openDrawer(),
             constraints: BoxConstraints(),
             style: IconButton.styleFrom(
               splashFactory: NoSplash.splashFactory,
