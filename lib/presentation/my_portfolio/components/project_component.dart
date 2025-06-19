@@ -2,8 +2,10 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 // Project imports:
 import 'package:xaistrying_portfolio/app/constant/image_constant.dart';
@@ -18,6 +20,7 @@ class ProjectComponent extends StatelessWidget {
     return ScreenHelper(
       desktopBody: _projectDesktopLayout(context),
       tabletBody: _projectTabletLayout(context),
+      mediumDesktopBody: _projectMediumDesktopLayout(context),
       mobileBody: _projectMobileLayout(context),
     );
   }
@@ -49,8 +52,10 @@ class ProjectComponent extends StatelessWidget {
   }
 
   Widget _projectTabletLayout(BuildContext context) {
+    ValueNotifier<int> cardIndex = ValueNotifier(0);
+
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 80, horizontal: 40),
+      padding: EdgeInsets.symmetric(vertical: 80, horizontal: 32),
       decoration: _projectContainerDecoration(context),
       child: Column(
         spacing: 40,
@@ -63,14 +68,88 @@ class ProjectComponent extends StatelessWidget {
               color: AppColor.getLightDark(context),
             ),
           ),
+          CarouselSlider(
+            options: CarouselOptions(
+              height: 520,
+              onPageChanged: (index, reason) => cardIndex.value = index,
+              viewportFraction:
+                  0.7 - (0.2 * MediaQuery.of(context).size.width / 1000),
+              enlargeCenterPage: true,
+              enlargeFactor: 0.15,
+            ),
+            items: List<Widget>.generate(5, (int index) {
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4),
+                child: _projectCard(context),
+              );
+            }),
+          ),
+          ValueListenableBuilder(
+            valueListenable: cardIndex,
+            builder:
+                (context, value, child) => AnimatedSmoothIndicator(
+                  activeIndex: value,
+                  count: 5,
+                  effect: SwapEffect(
+                    activeDotColor: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+          ),
         ],
       ),
     );
   }
 
   Widget _projectMobileLayout(BuildContext context) {
+    ValueNotifier<int> cardIndex = ValueNotifier(0);
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 80, horizontal: 40),
+      padding: EdgeInsets.symmetric(vertical: 80, horizontal: 32),
+      decoration: _projectContainerDecoration(context),
+      child: Column(
+        spacing: 40,
+        children: [
+          Text(
+            'Lorem Ipsum',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: AppColor.getLightDark(context),
+            ),
+          ),
+          CarouselSlider(
+            options: CarouselOptions(
+              height: 520,
+              onPageChanged: (index, reason) => cardIndex.value = index,
+              viewportFraction: 1,
+            ),
+            items: List<Widget>.generate(5, (int index) {
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4),
+                child: _projectCard(context),
+              );
+            }),
+          ),
+          ValueListenableBuilder(
+            valueListenable: cardIndex,
+            builder:
+                (context, value, child) => AnimatedSmoothIndicator(
+                  activeIndex: value,
+                  count: 5,
+                  effect: SwapEffect(
+                    activeDotColor: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _projectMediumDesktopLayout(BuildContext context) {
+    ValueNotifier<int> cardIndex = ValueNotifier(0);
+
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 80, horizontal: 32),
       decoration: _projectContainerDecoration(context),
       child: Column(
         spacing: 40,
@@ -82,6 +161,31 @@ class ProjectComponent extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: AppColor.getLightDark(context),
             ),
+          ),
+          CarouselSlider(
+            options: CarouselOptions(
+              height: 520,
+              onPageChanged: (index, reason) => cardIndex.value = index,
+              enlargeCenterPage: true,
+              enlargeFactor: 0.15,
+            ),
+            items: List<Widget>.generate(5, (int index) {
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4),
+                child: _projectCard(context),
+              );
+            }),
+          ),
+          ValueListenableBuilder(
+            valueListenable: cardIndex,
+            builder:
+                (context, value, child) => AnimatedSmoothIndicator(
+                  activeIndex: value,
+                  count: 5,
+                  effect: SwapEffect(
+                    activeDotColor: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
           ),
         ],
       ),
@@ -124,17 +228,30 @@ class ProjectComponent extends StatelessWidget {
                     }),
                   ),
                 ),
-                Text(
-                  '${DateFormat.yMMM().format(DateTime.now())} - ${DateFormat.yMMM().format(DateTime.now())}',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: AppColor.getLightDark(context),
+                if (!ScreenHelper.isMobile(context))
+                  Text(
+                    '${DateFormat.yMMM().format(DateTime.now())} - ${DateFormat.yMMM().format(DateTime.now())}',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: AppColor.getLightDark(context),
+                    ),
                   ),
-                ),
                 SizedBox(width: 50),
               ],
             ),
           ),
+          if (ScreenHelper.isMobile(context)) ...[
+            SizedBox(height: 12),
+            _defaultHorizontalPadding(
+              child: Text(
+                '${DateFormat.yMMM().format(DateTime.now())} - ${DateFormat.yMMM().format(DateTime.now())}',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: AppColor.getLightDark(context),
+                ),
+              ),
+            ),
+          ],
           SizedBox(height: 20),
           Divider(
             color: AppColor.getLightDark(context),
@@ -168,9 +285,16 @@ class ProjectComponent extends StatelessWidget {
                 fontSize: 20,
                 color: AppColor.getLightDark(context),
               ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
-          SizedBox(height: 20),
+
+          if (ScreenHelper.isDesktop(context))
+            SizedBox(height: 20)
+          else
+            Spacer(),
+
           _defaultHorizontalPadding(
             child: Row(
               spacing: 16,
