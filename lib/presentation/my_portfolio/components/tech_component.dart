@@ -23,7 +23,7 @@ class TechComponent extends StatelessWidget {
         MediaQuery.of(context).size.width *
         (ScreenHelper.isDesktop(context) ? .7 : .85);
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+      padding: EdgeInsets.symmetric(vertical: 80, horizontal: 40),
       decoration: _techContainerDecoration(context),
       child: Column(
         spacing: 40,

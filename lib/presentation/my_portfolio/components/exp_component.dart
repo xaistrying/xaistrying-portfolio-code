@@ -81,7 +81,11 @@ class ExpComponent extends StatelessWidget {
               ],
             ),
           ),
-          Divider(color: AppColor.getLightDark(context), height: 40),
+          Divider(
+            color: AppColor.getLightDark(context),
+            height: 40,
+            thickness: 2,
+          ),
           _defaultHorizontalPadding(
             child: Text(
               '2020 - 2025',

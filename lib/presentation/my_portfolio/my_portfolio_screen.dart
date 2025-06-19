@@ -2,10 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:xaistrying_portfolio/presentation/my_portfolio/components/exp_component.dart';
-import 'package:xaistrying_portfolio/presentation/my_portfolio/components/header_component.dart';
-import 'package:xaistrying_portfolio/presentation/my_portfolio/components/tech_component.dart';
 import '../nav/widget/sliver_app_bar_widget.dart';
+import 'components/my_portfolio_component.dart';
 
 class MyPortfolioScreen extends StatelessWidget {
   const MyPortfolioScreen({super.key});
@@ -21,6 +19,7 @@ class MyPortfolioScreen extends StatelessWidget {
               HeaderComponent(),
               TechComponent(),
               ExpComponent(),
+              ProjectComponent(),
             ]),
           ),
         ],
