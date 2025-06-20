@@ -17,7 +17,17 @@ class _HoverScaleAnimationWidgetState extends State<HoverScaleAnimationWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        setState(() {
+          _isHovered = true;
+        });
+        Future.delayed(
+          Durations.medium4,
+          () => setState(() {
+            _isHovered = false;
+          }),
+        );
+      },
       child: MouseRegion(
         onEnter:
             (_) => setState(() {

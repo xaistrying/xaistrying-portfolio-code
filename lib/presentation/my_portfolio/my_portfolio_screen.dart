@@ -20,6 +20,7 @@ class MyPortfolioScreen extends StatelessWidget {
               TechComponent(),
               ExpComponent(),
               ProjectComponent(),
+              CertComponent(),
             ]),
           ),
         ],
