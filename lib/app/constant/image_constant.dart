@@ -6,4 +6,5 @@ class ImageConstant {
   static String android = "asset/icon/android_2_fill.svg";
   static String earth = "asset/icon/earth_2_line.svg";
   static String github = "asset/icon/github_fill.svg";
+  static String arrowsUp = "asset/icon/arrows_up_line.svg";
 }
