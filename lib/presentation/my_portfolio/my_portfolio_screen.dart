@@ -60,21 +60,19 @@ class _MyPortfolioScreenState extends State<MyPortfolioScreen> {
   Widget _footerComponent() {
     return Container(
       decoration: BoxDecoration(color: AppColor.transGrey),
-      child: Expanded(
-        child: IconButton(
-          onPressed: _scrollToTop,
-          style: IconButton.styleFrom(
-            shape: RoundedRectangleBorder(),
-            padding: const EdgeInsets.symmetric(vertical: 12),
+      child: IconButton(
+        onPressed: _scrollToTop,
+        style: IconButton.styleFrom(
+          shape: RoundedRectangleBorder(),
+          padding: const EdgeInsets.symmetric(vertical: 12),
+        ),
+        icon: SvgPicture.asset(
+          ImageConstant.arrowsUp,
+          colorFilter: ColorFilter.mode(
+            AppColor.getWhiteBlack(context),
+            BlendMode.srcIn,
           ),
-          icon: SvgPicture.asset(
-            ImageConstant.arrowsUp,
-            colorFilter: ColorFilter.mode(
-              AppColor.getWhiteBlack(context),
-              BlendMode.srcIn,
-            ),
-            height: 40,
-          ),
+          height: 40,
         ),
       ),
     );
